@@ -11,6 +11,7 @@
 
 <body class="home-body">
   <div class="app">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <aside class="side-nav" aria-label="Navegación principal">
       <div class="logo">K</div>
       <nav>
@@ -24,14 +25,33 @@
 
     <main class="home-main">
       <header class="home-nav">
+        <label for="nav-toggle" class="menu-toggle" aria-label="Abrir menú">
+          <i class="fa-solid fa-bars"></i>
+        </label>
         <div class="logo">KCFLIX</div>
         <nav class="top-links" aria-label="Secciones">
           <a href="#estrenos">Estrenos</a>
           <a href="#tendencias">Tendencias</a>
           <a href="#continuar">Seguir viendo</a>
         </nav>
-        <a class="btn-secondary" href="index.html">Cerrar sesión</a>
+        <a class="btn-secondary desktop-only" href="index.html">Cerrar sesión</a>
       </header>
+
+      <div class="mobile-drawer" id="mobile-drawer">
+        <nav class="drawer-links" aria-label="Secciones rápidas">
+          <a href="#estrenos" onclick="document.getElementById('nav-toggle').checked=false;">Estrenos</a>
+          <a href="#tendencias" onclick="document.getElementById('nav-toggle').checked=false;">Tendencias</a>
+          <a href="#continuar" onclick="document.getElementById('nav-toggle').checked=false;">Seguir viendo</a>
+        </nav>
+        <div class="drawer-icons" aria-label="Acciones">
+          <a class="nav-icon active" href="#" aria-label="Inicio"><i class="fa-solid fa-house"></i></a>
+          <a class="nav-icon" href="#" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></a>
+          <a class="nav-icon" href="#" aria-label="Novedades"><i class="fa-solid fa-bolt"></i></a>
+          <a class="nav-icon" href="#" aria-label="Descargas"><i class="fa-solid fa-download"></i></a>
+          <a class="nav-icon" href="#" aria-label="Mi lista"><i class="fa-solid fa-plus"></i></a>
+        </div>
+        <a class="btn-secondary" href="index.html">Cerrar sesión</a>
+      </div>
 
       <section class="billboard fade-up">
         <div class="billboard-bg"></div>
