@@ -152,7 +152,8 @@ input[type="email"]:focus {
 }
 
 .btn-primary:hover {
-  background: #f6121d;
+  background: #ffffff;
+  color: #000;
 }
 
 .btn-primary:active {
