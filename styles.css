@@ -38,12 +38,13 @@ body {
               linear-gradient(180deg, var(--bg-top) 0%, #140000 45%, var(--bg-bottom) 100%);
   background-attachment: fixed;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 html {
   width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 .home-body {
@@ -292,7 +293,7 @@ input[type="email"]:focus {
 }
 
 .menu-toggle {
-  display: inline-flex;
+  display: none;
   width: 44px;
   height: 44px;
   align-items: center;
@@ -376,6 +377,7 @@ input[type="email"]:focus {
   background: linear-gradient(180deg, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.4) 100%);
   backdrop-filter: blur(4px);
   transition: none;
+  border-bottom: 1px solid rgba(255, 140, 26, 0.2);
 }
 
 .billboard {
@@ -515,6 +517,7 @@ input[type="email"]:focus {
 .row {
   padding: 12px clamp(20px, 3vw, 48px) 26px;
   overflow: hidden;
+  scroll-margin-top: 120px;
 }
 
 .row-header {
@@ -540,9 +543,9 @@ input[type="email"]:focus {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,0.7) 6%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0.4) 100%);
-  border: 1px solid rgba(229, 9, 20, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  box-shadow: inset 0 0 0 1px rgba(229, 9, 20, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .carousel::-webkit-scrollbar {
@@ -684,6 +687,15 @@ input[type="email"]:focus {
   .billboard {
     min-height: 60vh;
   }
+.top-links {
+    display: none;
+  }
+.menu-toggle {
+    display: inline-flex;
+  }
+.mobile-drawer {
+    display: block;
+  }
 .home-nav {
     left: 56px;
     right: 0;
@@ -715,14 +727,8 @@ input[type="email"]:focus {
   .top-links {
     display: none;
   }
-  .menu-toggle {
-    display: inline-flex;
-  }
   .desktop-only {
     display: none;
-  }
-  .mobile-drawer {
-    display: block;
   }
   #nav-toggle:checked ~ main .mobile-drawer {
     transform: translateY(0);
@@ -741,6 +747,32 @@ input[type="email"]:focus {
 
 .top-links {
   display: none;
+}
+
+.top-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.top-links a:hover {
+  color: var(--netflix-red);
+  background: rgba(255, 140, 26, 0.08);
+}
+
+@media (min-width: 901px) {
+  .top-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    margin-left: 18px;
+  }
+  .desktop-only {
+    margin-left: auto;
+  }
 }
 
 .mobile-drawer {
@@ -788,6 +820,12 @@ input[type="email"]:focus {
   height: 48px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 900px) {
+  .mobile-drawer {
+    display: block;
+  }
 }
 
 @media (max-width: 640px) {
